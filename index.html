@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b20">
+  <meta name="description" content="Recipes for You — a little cookbook of the things we'd make together.">
+  <title>Recipes for You ✦ Love for Mena</title>
+  <link rel="canonical" href="https://menaammarpro.github.io/love-recipebook/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Recipes for You — for Mena">
+  <meta property="og:title" content="Recipes for You ✦ Love for Mena">
+  <meta property="og:description" content="A little cookbook of the things we'd make together.">
+  <meta property="og:url" content="https://menaammarpro.github.io/love-recipebook/">
+  <meta property="og:image" content="https://menaammarpro.github.io/love-recipebook/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Recipes for You — a little cookbook">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Recipes for You ✦ Love for Mena">
+  <meta name="twitter:description" content="A little cookbook of the things we'd make together.">
+  <meta name="twitter:image" content="https://menaammarpro.github.io/love-recipebook/assets/og-image.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/theme-main.js" defer></script>
+  <script src="js/effects.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Recipes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">🍳 Recipes for You</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="#cook">What's for dinner?</a>
+      <a href="#recipes">All recipes</a>
+      <a href="#details">Details</a>
+      <a href="https://menaammarpro.github.io/loveformymena/">Our little universe ↗</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero recipe-hero">
+      <p class="eyebrow">A LITTLE COOKBOOK</p>
+      <div class="moon" aria-hidden="true">🍳</div>
+      <p class="small-caption">For the nights we cook together.</p>
+      <h1>Recipes <span>for you.</span></h1>
+      <p class="hero-description">
+        Pizza first, always. Everything we'd make together, with the ingredients,
+        the steps, and a little button for when we can't decide what to cook.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#cook">What should we cook? <span>♥</span></a>
+        <a class="button button-ghost" href="#recipes">See the recipes</a>
+      </div>
+      <p class="signature">Made with love, just for you <span>♥</span></p>
+    </section>
+
+    <section class="section" id="cook">
+      <p class="eyebrow">DECIDE FOR US</p>
+      <h2>What's for <span>dinner?</span></h2>
+      <p class="section-copy">Press the button and one recipe comes up — never the same one twice in a row.</p>
+      <button class="button button-primary" id="pick-recipe" type="button">Pick for us <span>♥</span></button>
+
+      <div class="pick-card" id="pick-card" hidden>
+        <h3 id="pick-name"></h3>
+        <p class="pick-meta" id="pick-meta"></p>
+        <p class="pick-steps" id="pick-steps"></p>
+      </div>
+      <p class="section-note" id="save-note" aria-live="polite"></p>
+    </section>
+
+    <section class="section" id="recipes">
+      <p class="eyebrow">THE BOOK</p>
+      <h2>All our <span>recipes.</span></h2>
+      <div class="recipe-meta">
+        <span class="diary-chip"><strong id="recipe-count">0</strong> recipes</span>
+      </div>
+
+      <div class="recipe-list" id="recipe-list"></div>
+
+      <div class="recipe-form">
+        <h3>Add your own</h3>
+        <label class="field">
+          <span>Name</span>
+          <input type="text" id="add-name" maxlength="60" placeholder="Mena's white-chocolate cookies" aria-label="Recipe name">
+        </label>
+        <div class="recipe-row">
+          <label class="field">
+            <span>Time (minutes)</span>
+            <input type="number" id="add-time" min="1" max="600" value="30" aria-label="Time in minutes">
+          </label>
+          <label class="field">
+            <span>Tag</span>
+            <input type="text" id="add-tag" maxlength="24" placeholder="sweet" aria-label="Tag">
+          </label>
+        </div>
+        <label class="field">
+          <span>Ingredients (one per line)</span>
+          <textarea id="add-ingredients" rows="4" maxlength="1200" placeholder="200g flour&#10;125g butter" aria-label="Ingredients"></textarea>
+        </label>
+        <label class="field">
+          <span>Steps (one per line)</span>
+          <textarea id="add-steps" rows="4" maxlength="1400" placeholder="Mix. Bake. Share." aria-label="Steps"></textarea>
+        </label>
+        <button class="button button-primary" id="add-recipe" type="button">Add to the book <span>♥</span></button>
+      </div>
+    </section>
+
+    <section class="section" id="details">
+      <p class="eyebrow">JUST FOR US</p>
+      <h2>Details.</h2>
+      <div class="settings-actions">
+        <button class="button button-ghost" id="share-button" type="button">Share this page</button>
+        <button class="button button-ghost" id="reset-recipes" type="button">Back to the starter book</button>
+      </div>
+      <p class="settings-note">Saved on this device only — no tracking, no network calls.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with care <span>♥</span> for Mena</p>
+    <p class="footer-small">A little universe of its own ✦</p>
+  </footer>
+</body>
+</html>
