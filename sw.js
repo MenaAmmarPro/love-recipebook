@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE = "love-recipebook-v1";
+const CACHE = "love-recipebook-v2";
 
 const ASSETS = [
   "./",
